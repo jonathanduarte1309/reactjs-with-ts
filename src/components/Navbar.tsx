@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import './Navbar.css'; // Optional: For styling
+import './Navbar.css';
 
 const Navbar: React.FC = () => {
   return (
@@ -14,6 +14,11 @@ const Navbar: React.FC = () => {
         </li>
         <li>
           <Link to="/contact">Contact</Link>
+        </li>
+      </ul>
+      <ul className='right-most'>
+        <li>
+          <Link to="/login">Login</Link>
         </li>
       </ul>
     </nav>
