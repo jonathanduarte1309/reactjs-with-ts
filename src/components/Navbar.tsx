@@ -1,24 +1,23 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import './Navbar.css';
 
 const Navbar: React.FC = () => {
   return (
-    <nav className="navbar">
-      <ul>
-        <li>
-          <Link to="/">Home</Link>
+    <nav className="bg-slate-600 overflow-hidden">
+      <ul className="list-none m-0 p-0">
+        <li className='float-left'>
+          <Link className='block text-white px-3 py-2 text-center hover:bg-gray-50 hover:text-slate-600' to="/">Home</Link>
         </li>
-        <li>
-          <Link to="/about">About</Link>
+        <li className='float-left'>
+          <Link className='block text-white px-3 py-2 text-center hover:bg-gray-50 hover:text-slate-600' to="/about">About</Link>
         </li>
-        <li>
-          <Link to="/contact">Contact</Link>
+        <li className='float-left'>
+          <Link className='block text-white px-3 py-2 text-center hover:bg-gray-50 hover:text-slate-600' to="/contact">Contact</Link>
         </li>
       </ul>
-      <ul className='right-most'>
-        <li>
-          <Link to="/login">Login</Link>
+      <ul className='list-none m-0 p-0'>
+        <li className='float-right'>
+          <Link className='block text-white px-3 py-2 text-center hover:bg-gray-50 hover:text-slate-600' to="/login">Login</Link>
         </li>
       </ul>
     </nav>

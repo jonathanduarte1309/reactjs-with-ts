@@ -45,6 +45,37 @@ app.get('/api/users', async (req: Request, res: Response) => {
     }
 });
 
+// Delete a user by name 
+app.delete('/api/users/:_name', async (req: Request, res: Response) => {
+    try {
+        const { _name } = req.params;
+        const deletedUser = await User.destroy({ where: { name: _name } });
+        if (deletedUser) {
+            res.status(200).json({ message: 'User deleted successfully' });
+        } else {
+            res.status(404).json({ error: 'User not found' });
+        }
+    } catch (error) {
+        res.status(500).json({ error: 'Error deleting user' });
+    }
+});
+
+// Update a user by name
+app.put('/api/users/:_name', async (req: Request, res: Response) => {
+    try {
+        const { _name } = req.params;
+        const { name, email, password } = req.body;
+        const updatedUser = await User.update({ name, email, password }, { where: { name: _name } });
+        if (updatedUser) {
+            res.status(200).json({ message: 'User updated successfully' });
+        } else {
+            res.status(404).json({ error: 'User not found' });
+        }
+    } catch (error) {
+        res.status(500).json({ error: 'Error updating user' });
+    }
+});
+
 // Sync models and start the server
 app.listen(port, async () => {
     await User.sync();
